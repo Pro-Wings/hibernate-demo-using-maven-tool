@@ -5,16 +5,17 @@ public class Student {
 	private int id;
 	private String name;
 	private String address;
+	private int marks;
 
 	public Student() {
 		super();
 	}
 
-	public Student(int id, String name, String address) {
+	public Student(String name, String address, int marks) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.address = address;
+		this.marks = marks;
 	}
 
 	public int getId() {
@@ -41,9 +42,18 @@ public class Student {
 		this.address = address;
 	}
 
+	public int getMarks() {
+		return marks;
+	}
+
+	public void setMarks(int marks) {
+		this.marks = marks;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", address=" + address + "]";
+		return "Student [id=" + id + ", name=" + name + ", address=" + address + ", marks=" + marks + "]";
 	}
+
 	
 }
