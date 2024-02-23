@@ -19,10 +19,10 @@
     <property name="format_sql">true</property>
 
     <!-- Mapping Details -->
-<!--     <mapping resource="student.hbm.xml"/> -->
-<!--     <mapping class="com.prowings.Car"></mapping> -->
-     <mapping class="com.prowings.enitity.Employee"></mapping>
-     <mapping class="com.prowings.enitity.Department"></mapping>
-<!-- 		<mapping package ="com.prowings.enitity"></mapping> -->
+    <mapping resource="student.hbm.xml"/>
+    <mapping class="com.prowings.Car"></mapping>
+	<!-- <mapping package ="com.prowings.enitity"></mapping> -->
+    <mapping class="com.prowings.enitity.Employee"></mapping>
+    <mapping class="com.prowings.enitity.Department"></mapping>
   </session-factory>
 </hibernate-configuration>

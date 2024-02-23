@@ -25,6 +25,8 @@ public class StudentRepository {
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		
+		System.out.println(sessionFactory);
+		
 		System.out.println("session factory object created successfully!!");
 		
 		Session session = sessionFactory.openSession();
@@ -33,11 +35,33 @@ public class StudentRepository {
 //		session.save(s1);
 //		s1.setAddress("Dubai");
 //		session.save(car1);
-		session.save(emp1);
-		session.save(dept);
+		session.save(emp1); //Persistent state
+		
+		session.evict(emp1); //Detached state
+		
+		emp1.setName("Sham"); //made change to detached instance
+		
+//		Employee mergedEmp = (Employee) session.merge(emp1);
+//		System.out.println(">>>>>>>>>> "+mergedEmp);
+		
+		session.update(emp1);
+		
+//		session.save(dept);
+		
+//		Car car = session.get(Car.class, 11);
+//		Car car = (Car) session.get("com.prowings.Car", 1);
+
+//		Car car = session.load(Car.class, 11);
+		
+		
+		
+//		System.out.println(">>>>>>>>"+session.getEntityName(car));
+//		System.out.println("Retrived Car : "+car);
 		
 		txn.commit();
+		session.close();
 		System.out.println("Student saved to DB successfully!!");
+		sessionFactory.close();
 	}
 	
 	
