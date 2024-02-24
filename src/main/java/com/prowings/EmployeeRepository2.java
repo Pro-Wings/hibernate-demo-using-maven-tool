@@ -19,19 +19,29 @@ public class EmployeeRepository2 {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		System.out.println(sessionFactory);
 		System.out.println("session factory object created successfully!!");
-		
+
 		Employee emp1 = new Employee();
 		emp1.setId(1);
 		emp1.setName("AAA");
 		emp1.setDepartment("IT");
 		emp1.setSalary(12345);
 		
-		Session session1 = sessionFactory.openSession();
-		Transaction txn1 = session1.beginTransaction();
-		session1.merge(emp1);
-		txn1.commit();
-		session1.close(); 	}
-	
-	
+		Transaction txn1 = null;
+		Session session1 = null;
+		try {
+			session1 = sessionFactory.openSession();
+			txn1 = session1.beginTransaction();
+			session1.merge(emp1);
+			txn1.commit();
+		} catch (Exception e) {
+			if(txn1 != null)
+				txn1.rollback();
+		}
+		finally {
+			
+			session1.close();
+		}
+
+	}
 
 }
