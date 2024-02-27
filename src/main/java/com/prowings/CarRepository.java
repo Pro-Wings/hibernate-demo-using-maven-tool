@@ -26,9 +26,8 @@ public class CarRepository {
 			session = sessionFactory.openSession();
 			txn = session.beginTransaction();
 			
-			List < Object > totalCars = session.createNamedQuery("GET_CARS_COUNT").getResultList();
-            System.out.println("Total Students: " + totalCars.get(0));
-			
+//			List < Object > totalCars = session.createNamedQuery("GET_CARS_COUNT").getResultList();
+//            System.out.println("Total Students: " + totalCars.get(0));
 			txn.commit();
 			
 		}catch (Exception e) {

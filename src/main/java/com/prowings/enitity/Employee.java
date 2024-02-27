@@ -10,10 +10,12 @@ import javax.persistence.Id;
 public class Employee {
 	
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@Column
 	private String name;
+	@Column
+	private int age;
 	@Column
 	private String department;
 	@Column
@@ -23,9 +25,10 @@ public class Employee {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Employee(String name, String department, double salary) {
+	public Employee(String name, int age, String department, double salary) {
 		super();
 		this.name = name;
+		this.age = age;
 		this.department = department;
 		this.salary = salary;
 	}
@@ -53,9 +56,16 @@ public class Employee {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", department=" + department + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", age=" + age + ", department=" + department + ", salary="
+				+ salary + "]";
 	}
 	
 }

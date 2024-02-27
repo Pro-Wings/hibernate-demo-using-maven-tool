@@ -15,18 +15,18 @@ import org.hibernate.annotations.NamedQuery;
 @Entity
 @Table(name = "CarTable")
 
-@NamedQueries({
-	@NamedQuery(name="GET_ALL_CARS", query = "From Cars"),
-	@NamedQuery(name = "GET_SUV_CARS", query = "From Cars c where c.type = 'SUV'"),
-})
-
-@NamedQuery(name = "GET_CARS_COUNT", query = "select count(1) from Car")
-
-@NamedNativeQuery(name = "GETCARS", query = "SELECT * FROM cartable")
-@NamedNativeQueries({
-	@javax.persistence.NamedNativeQuery(name = "GETCARS", query = "SELECT * FROM cartable"),
-	
-})
+//@NamedQueries({
+//	@NamedQuery(name="GET_ALL_CARS", query = "From Cars"),
+//	@NamedQuery(name = "GET_SUV_CARS", query = "From Cars c where c.type = 'SUV'"),
+//})
+//
+//@NamedQuery(name = "GET_CARS_COUNT", query = "select count(1) from Car")
+//
+//@NamedNativeQuery(name = "GETCARS12", query = "SELECT * FROM cartable")
+//@NamedNativeQueries({
+//	@javax.persistence.NamedNativeQuery(name = "GETCARS1", query = "SELECT * FROM cartable"),
+//	
+//})
 public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
